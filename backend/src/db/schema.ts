@@ -196,6 +196,9 @@ export const leaveBalances = pgTable(
     id: uuid("id")
       .primaryKey()
       .$defaultFn(() => uuidv7()),
+    user_id: uuid("user_id")
+      .notNull()
+      .references(() => users.id),
     leaveType: leaveCodeEnum("leave_type").notNull(),
     entitled: numeric("entitled", { precision: 5, scale: 1, mode: "number" }),
     carried: numeric("carried", { precision: 5, scale: 1, mode: "number" }),
