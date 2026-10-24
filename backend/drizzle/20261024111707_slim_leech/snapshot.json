@@ -1,0 +1,1957 @@
+{
+  "type": "diff",
+  "version": "9",
+  "dialect": "postgres",
+  "id": "31c5c408-b58b-4d88-9b25-00b807ae9a65",
+  "prevIds": [
+    "4b066629-2e49-4fd5-8150-2116dcf6e64f"
+  ],
+  "footprints": [
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "approval_decision"
+      ],
+      "writes": [
+        "s|enum|public.approval_decision",
+        "n|enum|public.approval_decision",
+        "e|enum|public.approval_decision",
+        "n|type|public.approval_decision"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "leave_code"
+      ],
+      "writes": [
+        "s|enum|public.leave_code",
+        "n|enum|public.leave_code",
+        "e|enum|public.leave_code",
+        "n|type|public.leave_code"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "leave_status"
+      ],
+      "writes": [
+        "s|enum|public.leave_status",
+        "n|enum|public.leave_status",
+        "e|enum|public.leave_status",
+        "n|type|public.leave_status"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "approval_policies"
+      ],
+      "writes": [
+        "s|tbl|public.approval_policies",
+        "n|tbl|public.approval_policies",
+        "e|tbl|public.approval_policies",
+        "n|rel|public.approval_policies",
+        "n|type|public.approval_policies",
+        "n|rel|public.approval_policies_pkey",
+        "n|rel|public.approval_policies_version_key",
+        "n|rel|public.approval_policies_effective_from_key"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "approval_policy_rules"
+      ],
+      "writes": [
+        "s|tbl|public.approval_policy_rules",
+        "n|tbl|public.approval_policy_rules",
+        "e|tbl|public.approval_policy_rules",
+        "n|rel|public.approval_policy_rules",
+        "n|type|public.approval_policy_rules",
+        "n|rel|public.approval_policy_rules_pkey",
+        "n|rel|public.approval_policy_rules_policy_id_leave_type_id_max_days_unique"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "holidays"
+      ],
+      "writes": [
+        "s|tbl|public.holidays",
+        "n|tbl|public.holidays",
+        "e|tbl|public.holidays",
+        "n|rel|public.holidays",
+        "n|type|public.holidays",
+        "n|rel|public.holidays_pkey",
+        "n|rel|public.holidays_id_name_unique"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "leave_balances"
+      ],
+      "writes": [
+        "s|tbl|public.leave_balances",
+        "n|tbl|public.leave_balances",
+        "e|tbl|public.leave_balances",
+        "n|rel|public.leave_balances",
+        "n|type|public.leave_balances",
+        "n|rel|public.leave_balances_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.leave_code"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "leave_request_approvals"
+      ],
+      "writes": [
+        "s|tbl|public.leave_request_approvals",
+        "n|tbl|public.leave_request_approvals",
+        "e|tbl|public.leave_request_approvals",
+        "n|rel|public.leave_request_approvals",
+        "n|type|public.leave_request_approvals",
+        "n|rel|public.leave_request_approvals_pkey",
+        "n|rel|public.leave_request_approvals_request_id_step_unique"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.role",
+        "n|enum|public.approval_decision"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "leave_requests"
+      ],
+      "writes": [
+        "s|tbl|public.leave_requests",
+        "n|tbl|public.leave_requests",
+        "e|tbl|public.leave_requests",
+        "n|rel|public.leave_requests",
+        "n|type|public.leave_requests",
+        "n|rel|public.leave_requests_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.leave_code",
+        "n|enum|public.leave_status"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "leave_types"
+      ],
+      "writes": [
+        "s|tbl|public.leave_types",
+        "n|tbl|public.leave_types",
+        "e|tbl|public.leave_types",
+        "n|rel|public.leave_types",
+        "n|type|public.leave_types",
+        "n|rel|public.leave_types_pkey",
+        "n|rel|public.leave_types_name_key"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.leave_code"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "holidays",
+        "holidays_id_idx"
+      ],
+      "writes": [
+        "s|idx|public.holidays_id_idx",
+        "n|idx|public.holidays_id_idx",
+        "e|idx|public.holidays_id_idx",
+        "n|rel|public.holidays_id_idx"
+      ],
+      "reads": [
+        "n|tbl|public.holidays",
+        "n|sch|public",
+        "n|col|public.holidays.id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "holidays",
+        "holidays_date_idx"
+      ],
+      "writes": [
+        "s|idx|public.holidays_date_idx",
+        "n|idx|public.holidays_date_idx",
+        "e|idx|public.holidays_date_idx",
+        "n|rel|public.holidays_date_idx"
+      ],
+      "reads": [
+        "n|tbl|public.holidays",
+        "n|sch|public",
+        "n|col|public.holidays.date"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "holidays",
+        "holidays_name_idx"
+      ],
+      "writes": [
+        "s|idx|public.holidays_name_idx",
+        "n|idx|public.holidays_name_idx",
+        "e|idx|public.holidays_name_idx",
+        "n|rel|public.holidays_name_idx"
+      ],
+      "reads": [
+        "n|tbl|public.holidays",
+        "n|sch|public",
+        "n|col|public.holidays.name"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "leave_balances",
+        "leave_balances_id_idx"
+      ],
+      "writes": [
+        "s|idx|public.leave_balances_id_idx",
+        "n|idx|public.leave_balances_id_idx",
+        "e|idx|public.leave_balances_id_idx",
+        "n|rel|public.leave_balances_id_idx"
+      ],
+      "reads": [
+        "n|tbl|public.leave_balances",
+        "n|sch|public",
+        "n|col|public.leave_balances.id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "leave_balances",
+        "leave_balances_leave_type_idx"
+      ],
+      "writes": [
+        "s|idx|public.leave_balances_leave_type_idx",
+        "n|idx|public.leave_balances_leave_type_idx",
+        "e|idx|public.leave_balances_leave_type_idx",
+        "n|rel|public.leave_balances_leave_type_idx"
+      ],
+      "reads": [
+        "n|tbl|public.leave_balances",
+        "n|sch|public",
+        "n|col|public.leave_balances.leave_type"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "leave_request_approvals",
+        "leave_request_approvals_request_id_index"
+      ],
+      "writes": [
+        "s|idx|public.leave_request_approvals_request_id_index",
+        "n|idx|public.leave_request_approvals_request_id_index",
+        "e|idx|public.leave_request_approvals_request_id_index",
+        "n|rel|public.leave_request_approvals_request_id_index"
+      ],
+      "reads": [
+        "n|tbl|public.leave_request_approvals",
+        "n|sch|public",
+        "n|col|public.leave_request_approvals.request_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "leave_requests",
+        "chain_snapshots_idx"
+      ],
+      "writes": [
+        "s|idx|public.chain_snapshots_idx",
+        "n|idx|public.chain_snapshots_idx",
+        "e|idx|public.chain_snapshots_idx",
+        "n|rel|public.chain_snapshots_idx"
+      ],
+      "reads": [
+        "n|tbl|public.leave_requests",
+        "n|sch|public",
+        "n|col|public.leave_requests.chain_snapshot"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "approval_policy_rules"
+      ],
+      "writes": [
+        "s|fk|public.approval_policy_rules.approval_policy_rules_policy_id_approval_policies_id_fkey",
+        "n|fk|public.approval_policy_rules.approval_policy_rules_policy_id_approval_policies_id_fkey",
+        "e|fk|public.approval_policy_rules.approval_policy_rules_policy_id_approval_policies_id_fkey",
+        "n|con|public.approval_policy_rules.approval_policy_rules_policy_id_approval_policies_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.approval_policy_rules",
+        "n|sch|public",
+        "n|tbl|public.approval_policies",
+        "n|sch|public",
+        "n|col|public.approval_policy_rules.policy_id",
+        "n|col|public.approval_policies.id",
+        "e|uniqueness|public.approval_policies.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "approval_policy_rules"
+      ],
+      "writes": [
+        "s|fk|public.approval_policy_rules.approval_policy_rules_leave_type_id_leave_types_id_fkey",
+        "n|fk|public.approval_policy_rules.approval_policy_rules_leave_type_id_leave_types_id_fkey",
+        "e|fk|public.approval_policy_rules.approval_policy_rules_leave_type_id_leave_types_id_fkey",
+        "n|con|public.approval_policy_rules.approval_policy_rules_leave_type_id_leave_types_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.approval_policy_rules",
+        "n|sch|public",
+        "n|tbl|public.leave_types",
+        "n|sch|public",
+        "n|col|public.approval_policy_rules.leave_type_id",
+        "n|col|public.leave_types.id",
+        "e|uniqueness|public.leave_types.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "leave_request_approvals"
+      ],
+      "writes": [
+        "s|fk|public.leave_request_approvals.leave_request_approvals_request_id_leave_requests_id_fkey",
+        "n|fk|public.leave_request_approvals.leave_request_approvals_request_id_leave_requests_id_fkey",
+        "e|fk|public.leave_request_approvals.leave_request_approvals_request_id_leave_requests_id_fkey",
+        "n|con|public.leave_request_approvals.leave_request_approvals_request_id_leave_requests_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.leave_request_approvals",
+        "n|sch|public",
+        "n|tbl|public.leave_requests",
+        "n|sch|public",
+        "n|col|public.leave_request_approvals.request_id",
+        "n|col|public.leave_requests.id",
+        "e|uniqueness|public.leave_requests.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "leave_request_approvals"
+      ],
+      "writes": [
+        "s|fk|public.leave_request_approvals.leave_request_approvals_approver_id_users_id_fkey",
+        "n|fk|public.leave_request_approvals.leave_request_approvals_approver_id_users_id_fkey",
+        "e|fk|public.leave_request_approvals.leave_request_approvals_approver_id_users_id_fkey",
+        "n|con|public.leave_request_approvals.leave_request_approvals_approver_id_users_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.leave_request_approvals",
+        "n|sch|public",
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.leave_request_approvals.approver_id",
+        "n|col|public.users.id",
+        "e|uniqueness|public.users.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "leave_requests"
+      ],
+      "writes": [
+        "s|fk|public.leave_requests.leave_requests_user_id_users_id_fkey",
+        "n|fk|public.leave_requests.leave_requests_user_id_users_id_fkey",
+        "e|fk|public.leave_requests.leave_requests_user_id_users_id_fkey",
+        "n|con|public.leave_requests.leave_requests_user_id_users_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.leave_requests",
+        "n|sch|public",
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.leave_requests.user_id",
+        "n|col|public.users.id",
+        "e|uniqueness|public.users.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "leave_requests"
+      ],
+      "writes": [
+        "s|fk|public.leave_requests.leave_requests_policy_id_approval_policies_id_fkey",
+        "n|fk|public.leave_requests.leave_requests_policy_id_approval_policies_id_fkey",
+        "e|fk|public.leave_requests.leave_requests_policy_id_approval_policies_id_fkey",
+        "n|con|public.leave_requests.leave_requests_policy_id_approval_policies_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.leave_requests",
+        "n|sch|public",
+        "n|tbl|public.approval_policies",
+        "n|sch|public",
+        "n|col|public.leave_requests.policy_id",
+        "n|col|public.approval_policies.id",
+        "e|uniqueness|public.approval_policies.id"
+      ]
+    }
+  ],
+  "deltas": [
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "approval_policies",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "approval_policy_rules",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "holidays",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "leave_balances",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "leave_request_approvals",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "leave_requests",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "leave_types",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "approval_decision",
+        "values": [
+          "PENDING",
+          "APPROVED",
+          "REJECTED",
+          "SKIPPED"
+        ],
+        "entityType": "enums"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "leave_code",
+        "values": [
+          "ANNUAL",
+          "SICK",
+          "PERSONAL",
+          "BEREAVEMENT",
+          "PARENTAL",
+          "UNPAID"
+        ],
+        "entityType": "enums"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "leave_status",
+        "values": [
+          "APPROVED",
+          "REJECTED",
+          "CANCELLED",
+          "WITHDRAWN",
+          "PENDING_HR",
+          "PENDING_MANAGER"
+        ],
+        "entityType": "enums"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policies",
+        "name": "id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policies",
+        "name": "version",
+        "type": "varchar(20)",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policies",
+        "name": "effective_from",
+        "type": "date",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policies",
+        "name": "created_at",
+        "type": "timestamp",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policy_rules",
+        "name": "id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policy_rules",
+        "name": "policy_id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policy_rules",
+        "name": "leave_type_id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policy_rules",
+        "name": "max_days",
+        "type": "numeric(5,1)",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policy_rules",
+        "name": "chain",
+        "type": "jsonb",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policy_rules",
+        "name": "notify_manager",
+        "type": "boolean",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "false",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "holidays",
+        "name": "id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "holidays",
+        "name": "date",
+        "type": "date",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "holidays",
+        "name": "name",
+        "type": "varchar(255)",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_balances",
+        "name": "id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_balances",
+        "name": "leave_type",
+        "type": "leave_code",
+        "typeSchema": "public",
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_balances",
+        "name": "entitled",
+        "type": "numeric(5,1)",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_balances",
+        "name": "carried",
+        "type": "numeric(5,1)",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_balances",
+        "name": "adjustment",
+        "type": "numeric(5,1)",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_balances",
+        "name": "used",
+        "type": "numeric(5,1)",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_balances",
+        "name": "pending",
+        "type": "numeric(5,1)",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_balances",
+        "name": "available",
+        "type": "numeric(5,1)",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_balances",
+        "name": "created_at",
+        "type": "timestamp",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_balances",
+        "name": "updated_at",
+        "type": "timestamp",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_request_approvals",
+        "name": "id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_request_approvals",
+        "name": "request_id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_request_approvals",
+        "name": "step",
+        "type": "smallint",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_request_approvals",
+        "name": "role",
+        "type": "role",
+        "typeSchema": "public",
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_request_approvals",
+        "name": "approver_id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_request_approvals",
+        "name": "decision",
+        "type": "approval_decision",
+        "typeSchema": "public",
+        "notNull": true,
+        "dimensions": 0,
+        "default": "'PENDING'",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_request_approvals",
+        "name": "comment",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_request_approvals",
+        "name": "decided_at",
+        "type": "timestamp with time zone",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "user_id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "leave_type",
+        "type": "leave_code",
+        "typeSchema": "public",
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "date_from",
+        "type": "date",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "date_to",
+        "type": "date",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "days",
+        "type": "numeric(4,1)",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "'0'",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "reason",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "submitted_at",
+        "type": "timestamp with time zone",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "status",
+        "type": "leave_status",
+        "typeSchema": "public",
+        "notNull": true,
+        "dimensions": 0,
+        "default": "'PENDING_MANAGER'",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "policy_id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "chain_snapshot",
+        "type": "jsonb",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "current_step",
+        "type": "smallint",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "0",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_types",
+        "name": "id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_types",
+        "name": "code",
+        "type": "leave_code",
+        "typeSchema": "public",
+        "notNull": true,
+        "dimensions": 0,
+        "default": "'PERSONAL'",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_types",
+        "name": "name",
+        "type": "varchar(255)",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_types",
+        "name": "entitlement",
+        "type": "numeric(5,1)",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_types",
+        "name": "allow_half_days",
+        "type": "boolean",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "false",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_types",
+        "name": "carry_over_cap",
+        "type": "numeric(5,1)",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_types",
+        "name": "document_required_after_days",
+        "type": "smallint",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_types",
+        "name": "is_statutory",
+        "type": "boolean",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "false",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_types",
+        "name": "is_paid",
+        "type": "boolean",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "true",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_types",
+        "name": "created_at",
+        "type": "timestamp",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_types",
+        "name": "updated_at",
+        "type": "timestamp",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "holidays",
+        "name": "holidays_id_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "id",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "concurrently": false,
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "holidays",
+        "name": "holidays_date_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "date",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "concurrently": false,
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "holidays",
+        "name": "holidays_name_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "name",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "concurrently": false,
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_balances",
+        "name": "leave_balances_id_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "id",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "concurrently": false,
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_balances",
+        "name": "leave_balances_leave_type_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "leave_type",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "concurrently": false,
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_request_approvals",
+        "name": "leave_request_approvals_request_id_index",
+        "nameExplicit": false,
+        "columns": [
+          {
+            "value": "request_id",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "concurrently": false,
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "chain_snapshots_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "chain_snapshot",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "concurrently": false,
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policy_rules",
+        "name": "approval_policy_rules_policy_id_approval_policies_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "policy_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "approval_policies",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "NO ACTION",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policy_rules",
+        "name": "approval_policy_rules_leave_type_id_leave_types_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "leave_type_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "leave_types",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "NO ACTION",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_request_approvals",
+        "name": "leave_request_approvals_request_id_leave_requests_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "request_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "leave_requests",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "CASCADE",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_request_approvals",
+        "name": "leave_request_approvals_approver_id_users_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "approver_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "users",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "NO ACTION",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "leave_requests_user_id_users_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "user_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "users",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "CASCADE",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "leave_requests_policy_id_approval_policies_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "policy_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "approval_policies",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "NO ACTION",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policies",
+        "name": "approval_policies_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policy_rules",
+        "name": "approval_policy_rules_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "holidays",
+        "name": "holidays_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_balances",
+        "name": "leave_balances_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_request_approvals",
+        "name": "leave_request_approvals_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "leave_requests_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_types",
+        "name": "leave_types_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policy_rules",
+        "name": "approval_policy_rules_policy_id_leave_type_id_max_days_unique",
+        "nameExplicit": false,
+        "columns": [
+          "policy_id",
+          "leave_type_id",
+          "max_days"
+        ],
+        "nullsNotDistinct": true,
+        "entityType": "uniques"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "holidays",
+        "name": "holidays_id_name_unique",
+        "nameExplicit": false,
+        "columns": [
+          "id",
+          "name"
+        ],
+        "nullsNotDistinct": false,
+        "entityType": "uniques"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_request_approvals",
+        "name": "leave_request_approvals_request_id_step_unique",
+        "nameExplicit": false,
+        "columns": [
+          "request_id",
+          "step"
+        ],
+        "nullsNotDistinct": false,
+        "entityType": "uniques"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policies",
+        "name": "approval_policies_version_key",
+        "nameExplicit": false,
+        "columns": [
+          "version"
+        ],
+        "nullsNotDistinct": false,
+        "entityType": "uniques"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "approval_policies",
+        "name": "approval_policies_effective_from_key",
+        "nameExplicit": false,
+        "columns": [
+          "effective_from"
+        ],
+        "nullsNotDistinct": false,
+        "entityType": "uniques"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_types",
+        "name": "leave_types_name_key",
+        "nameExplicit": false,
+        "columns": [
+          "name"
+        ],
+        "nullsNotDistinct": false,
+        "entityType": "uniques"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_request_approvals",
+        "name": "approver_role_not_employee",
+        "value": "\"role\" <> 'EMPLOYEE'",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "positive_days",
+        "value": "\"days\" > 0",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "leave_requests",
+        "name": "date_order",
+        "value": "\"date_to\" >= \"date_from\"",
+        "entityType": "checks"
+      }
+    }
+  ]
+}
