@@ -51,7 +51,7 @@ export const leaveCodeEnum = pgEnum("leave_code", [
   "UNPAID",
 ]);
 
-export const users = pgTable("users", {
+export const users = pgTable.withRLS("users", {
   id: uuid("id")
     .primaryKey()
     .$defaultFn(() => uuidv7()),
@@ -71,7 +71,7 @@ export const users = pgTable("users", {
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
 
-export const userProfiles = pgTable("user_profiles", {
+export const userProfiles = pgTable.withRLS("user_profiles", {
   id: uuid("id")
     .primaryKey()
     .notNull()
@@ -92,7 +92,21 @@ export const userProfiles = pgTable("user_profiles", {
 export type UserProfile = typeof userProfiles.$inferSelect;
 export type NewUserProfile = typeof userProfiles.$inferInsert;
 
-export const leaveTypes = pgTable("leave_types", {
+export const refreshTokens = pgTable.withRLS("refresh_tokens", {
+    jti: uuid('jti').primaryKey(),
+    familyId: uuid('family_id').notNull(),
+    userId: uuid('user_id').notNull().references(()=>users.id, {onDelete: "cascade"}),
+    tokenHash: text("token_hash").notNull(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    used: boolean("used").notNull().default(false),
+    revoked: boolean("revoked").notNull().default(false),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+}, (table) => [index("refresh_tokens_family_idx").on(table.familyId), index("refresh_tokens_user_idx").on(table.userId)])
+
+export type RefreshToken = typeof refreshTokens.$inferSelect;
+export type NewRefreshToken = typeof refreshTokens.$inferInsert;
+
+export const leaveTypes = pgTable.withRLS("leave_types", {
   id: uuid("id")
     .primaryKey()
     .$defaultFn(() => uuidv7()),
@@ -123,7 +137,7 @@ export const leaveTypes = pgTable("leave_types", {
 export type LeaveType = typeof leaveTypes.$inferSelect;
 export type NewLeaveType = typeof leaveTypes.$inferInsert;
 
-export const approvalPolicies = pgTable("approval_policies", {
+export const approvalPolicies = pgTable.withRLS("approval_policies", {
   id: uuid("id")
     .primaryKey()
     .$defaultFn(() => uuidv7()),
@@ -132,7 +146,7 @@ export const approvalPolicies = pgTable("approval_policies", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
-export const approvalPolicyRules = pgTable(
+export const approvalPolicyRules = pgTable.withRLS(
   "approval_policy_rules",
   {
     id: uuid("id")
@@ -154,7 +168,7 @@ export const approvalPolicyRules = pgTable(
 export type ApprovalPolicyRule = typeof approvalPolicyRules.$inferSelect;
 export type NewApprovalPolicyRule = typeof approvalPolicyRules.$inferInsert;
 
-export const leaveRequests = pgTable(
+export const leaveRequests = pgTable.withRLS(
   "leave_requests",
   {
     id: uuid("id")
@@ -190,7 +204,7 @@ export const leaveRequests = pgTable(
 export type LeaveRequest = typeof leaveRequests.$inferSelect;
 export type NewLeaveRequest = typeof leaveRequests.$inferInsert;
 
-export const leaveBalances = pgTable(
+export const leaveBalances = pgTable.withRLS(
   "leave_balances",
   {
     id: uuid("id")
@@ -225,7 +239,7 @@ export const leaveBalances = pgTable(
 export type LeaveBalances = typeof leaveBalances.$inferSelect;
 export type NewLeaveBalances = typeof leaveBalances.$inferInsert;
 
-export const leaveRequestApprovals = pgTable(
+export const leaveRequestApprovals = pgTable.withRLS(
   "leave_request_approvals",
   {
     id: uuid("id")
@@ -251,7 +265,7 @@ export const leaveRequestApprovals = pgTable(
 export type LeaveRequestApproval = typeof leaveRequestApprovals.$inferSelect;
 export type NewLeaveRequestApproval = typeof leaveRequestApprovals.$inferInsert;
 
-export const holidays = pgTable(
+export const holidays = pgTable.withRLS(
   "holidays",
   {
     id: uuid("id")

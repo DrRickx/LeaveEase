@@ -1,0 +1,243 @@
+{
+  "type": "diff",
+  "version": "9",
+  "dialect": "postgres",
+  "id": "44741cfb-8258-41b7-9295-94e165b257ee",
+  "prevIds": [
+    "07bef125-9532-4984-84db-b46810a89dbc"
+  ],
+  "footprints": [
+    {
+      "statementType": "alter_rls",
+      "statementTarget": [
+        "table",
+        "public",
+        "user_profiles"
+      ],
+      "writes": [
+        "s|rls|public.user_profiles"
+      ],
+      "reads": [
+        "n|tbl|public.user_profiles",
+        "n|sch|public"
+      ],
+      "sqlHash": "10e7cb2c650b8f31"
+    },
+    {
+      "statementType": "alter_rls",
+      "statementTarget": [
+        "table",
+        "public",
+        "users"
+      ],
+      "writes": [
+        "s|rls|public.users"
+      ],
+      "reads": [
+        "n|tbl|public.users",
+        "n|sch|public"
+      ],
+      "sqlHash": "ecbdd6712ef0fef0"
+    },
+    {
+      "statementType": "alter_rls",
+      "statementTarget": [
+        "table",
+        "public",
+        "approval_policies"
+      ],
+      "writes": [
+        "s|rls|public.approval_policies"
+      ],
+      "reads": [
+        "n|tbl|public.approval_policies",
+        "n|sch|public"
+      ],
+      "sqlHash": "3547a4f34619cfb2"
+    },
+    {
+      "statementType": "alter_rls",
+      "statementTarget": [
+        "table",
+        "public",
+        "approval_policy_rules"
+      ],
+      "writes": [
+        "s|rls|public.approval_policy_rules"
+      ],
+      "reads": [
+        "n|tbl|public.approval_policy_rules",
+        "n|sch|public"
+      ],
+      "sqlHash": "9c01c464a6869ce5"
+    },
+    {
+      "statementType": "alter_rls",
+      "statementTarget": [
+        "table",
+        "public",
+        "holidays"
+      ],
+      "writes": [
+        "s|rls|public.holidays"
+      ],
+      "reads": [
+        "n|tbl|public.holidays",
+        "n|sch|public"
+      ],
+      "sqlHash": "001859116a2f3697"
+    },
+    {
+      "statementType": "alter_rls",
+      "statementTarget": [
+        "table",
+        "public",
+        "leave_balances"
+      ],
+      "writes": [
+        "s|rls|public.leave_balances"
+      ],
+      "reads": [
+        "n|tbl|public.leave_balances",
+        "n|sch|public"
+      ],
+      "sqlHash": "5af586c32d5c3869"
+    },
+    {
+      "statementType": "alter_rls",
+      "statementTarget": [
+        "table",
+        "public",
+        "leave_request_approvals"
+      ],
+      "writes": [
+        "s|rls|public.leave_request_approvals"
+      ],
+      "reads": [
+        "n|tbl|public.leave_request_approvals",
+        "n|sch|public"
+      ],
+      "sqlHash": "0f6a2d3ffc5a12e9"
+    },
+    {
+      "statementType": "alter_rls",
+      "statementTarget": [
+        "table",
+        "public",
+        "leave_requests"
+      ],
+      "writes": [
+        "s|rls|public.leave_requests"
+      ],
+      "reads": [
+        "n|tbl|public.leave_requests",
+        "n|sch|public"
+      ],
+      "sqlHash": "1801186816b1b3e8"
+    },
+    {
+      "statementType": "alter_rls",
+      "statementTarget": [
+        "table",
+        "public",
+        "leave_types"
+      ],
+      "writes": [
+        "s|rls|public.leave_types"
+      ],
+      "reads": [
+        "n|tbl|public.leave_types",
+        "n|sch|public"
+      ],
+      "sqlHash": "c29cf99c3f586240"
+    },
+    {
+      "statementType": "alter_rls",
+      "statementTarget": [
+        "table",
+        "public",
+        "refresh_tokens"
+      ],
+      "writes": [
+        "s|rls|public.refresh_tokens"
+      ],
+      "reads": [
+        "n|tbl|public.refresh_tokens",
+        "n|sch|public"
+      ],
+      "sqlHash": "0952a3916f1f7b6b"
+    }
+  ],
+  "deltas": [
+    {
+      "op": "alter",
+      "key": "tables\u0000[\"public\",\"user_profiles\"]",
+      "set": {
+        "isRlsEnabled": true
+      }
+    },
+    {
+      "op": "alter",
+      "key": "tables\u0000[\"public\",\"users\"]",
+      "set": {
+        "isRlsEnabled": true
+      }
+    },
+    {
+      "op": "alter",
+      "key": "tables\u0000[\"public\",\"approval_policies\"]",
+      "set": {
+        "isRlsEnabled": true
+      }
+    },
+    {
+      "op": "alter",
+      "key": "tables\u0000[\"public\",\"approval_policy_rules\"]",
+      "set": {
+        "isRlsEnabled": true
+      }
+    },
+    {
+      "op": "alter",
+      "key": "tables\u0000[\"public\",\"holidays\"]",
+      "set": {
+        "isRlsEnabled": true
+      }
+    },
+    {
+      "op": "alter",
+      "key": "tables\u0000[\"public\",\"leave_balances\"]",
+      "set": {
+        "isRlsEnabled": true
+      }
+    },
+    {
+      "op": "alter",
+      "key": "tables\u0000[\"public\",\"leave_request_approvals\"]",
+      "set": {
+        "isRlsEnabled": true
+      }
+    },
+    {
+      "op": "alter",
+      "key": "tables\u0000[\"public\",\"leave_requests\"]",
+      "set": {
+        "isRlsEnabled": true
+      }
+    },
+    {
+      "op": "alter",
+      "key": "tables\u0000[\"public\",\"leave_types\"]",
+      "set": {
+        "isRlsEnabled": true
+      }
+    },
+    {
+      "op": "alter",
+      "key": "tables\u0000[\"public\",\"refresh_tokens\"]",
+      "set": {
+        "isRlsEnabled": true
+      }
+    }
+  ]
+}
